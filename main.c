@@ -1,0 +1,196 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
+/*   Updated: 2021/06/18 20:04:42 by rel-bour         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+t_all	*all_t(void)
+{
+	static t_all	all;
+
+	return (&all);
+}
+
+int	max_number(int *av, int len)
+{
+	int	max;
+	int	i;
+
+	i = 1;
+	max = av[0];
+	while (i < len)
+	{
+		if (max < av[i])
+			max = av[i];
+		i++;
+	}
+	return (max);
+}
+
+int	min_number(int *av, int len)
+{
+	int	min;
+	int	i;
+
+	i = 1;
+	min = av[0];
+	while (i < len)
+	{
+		if (min > av[i])
+			min = av[i];
+		i++;
+	}
+	return (min);
+}
+
+void	add_to_table_int(char *av[], char c)
+{
+	int		i;
+	t_all	*all;
+	
+	i = 1;
+	all = all_t();
+    if (c == 'a')
+    {
+        while (i <= all->len_a)
+        {
+            all->t_a[i - 1] = atoi(av[i]);
+            i++;
+        }
+    }
+    else
+    {
+        while (i <= all->len_c)
+        {
+            all->t_c[i - 1] = atoi(av[i]);
+            i++;
+        }
+    }
+}
+
+void	sort_tc(int tc[])
+{
+	int i;
+	int j;
+	int pos;
+	int min;
+	int swap;
+	t_all *all;
+
+	all = all_t();
+	i = 0;
+	while (i < all->len_c)
+	{
+		j = i;
+		min = tc[j];
+		pos = j;
+		while (j < all->len_c)
+		{
+			if (tc[j] < min)
+			{
+				min = tc[j];
+				pos = j;
+			}
+			j++;
+		}
+		if (pos != i)
+		{
+			swap = tc[i];
+			tc[i] = tc[pos];
+			tc[pos] = swap;
+		}
+		i++;
+	}
+}
+
+void initial(int ac, char **av)
+{
+    t_all *all;
+	
+	all = all_t();
+    all->len_a = ac - 1;
+    all->len_b = 0;
+    all->len_c = all->len_a;
+    all->t_a = (int *)malloc(sizeof(int *) * ac);
+    all->t_b = (int *)malloc(sizeof(int *) * ac);
+    all->t_c = (int *)malloc(sizeof(int *) * ac);
+    add_to_table_int(av, 'a');
+    add_to_table_int(av, 'c');
+    sort_tc(all->t_c);
+}
+
+int main(int ac, char **av)
+{
+    t_all *all;
+	int i = 0;
+
+	all = all_t();
+    if (ac > 2)
+    {
+        initial(ac, av);
+        // swap_a_b(all->t_a, 'a'); // SA
+        // swap_a_b(all->t_a, 'b'); // SB
+        // rotate(all->t_a, all->len_a, 'a'); // RA RB
+        // reverce_rotate(all->t_a, all->len_a, 'a'); // RRA RRB
+        // push_b(all->t_a, all->t_b); // pb
+        // push_a(all->t_a, all->t_b); // pa
+
+        if (all->len_a == 2)
+            sort_two();
+        if (all->len_a == 3)
+            sort_three();
+        if (all->len_a == 5)
+            sort_five();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // // ////////// tabl AA
+             i = 0;
+              printf("* THIS IS TABLE A * \n");
+            while(i < all->len_a)
+            {
+                printf("%d\n", all->t_a[i]);
+                i++;
+            }
+        // // ////////// tabl BB
+            i = 0;
+            printf("* THIS IS TABLE B * \n");
+            while(i < all->len_b)
+            {
+                printf("%d\n", all->t_b[i]);
+                i++;
+            }
+        // // ////////// tabl CC
+            // i = 0;
+            // printf("* THIS IS TABLE C *\n");
+            // while(i < all->len_c)
+            // {
+            //     printf("%d\n", all->t_c[i]);
+            //     i++;
+            // }
+    }
+    return (0);
+}
