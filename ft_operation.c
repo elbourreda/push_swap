@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:39:47 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 01:04:09 by parrot           ###   ########.fr       */
+/*   Updated: 2021/06/19 21:47:51 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,11 +133,9 @@ void	push_ad(int ta[], int tb[])
 	
 	while (i < (all->len_b))
 	{
-		// printf("%d", tb[i + 1]);
 		tb[i] = tb[i + 1];
 		i++;
 	}
-	// i = all->len_a + 1;
 	i = 0;
 	while(i < all->len_a)
 	{
@@ -146,15 +144,6 @@ void	push_ad(int ta[], int tb[])
 		i++;		
 	}
 	ta[0] = c;
-	
-	// while (i > 0)
-	// {
-	// 	ta[i] = ta[i - 1];
-	// 	i--;
-	// }
-	
-
 	all->len_b--;
 	all->len_a++;
-	// write(1, "pa\n", 3);
 }

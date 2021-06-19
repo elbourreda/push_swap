@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 19:17:09 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 21:37:18 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:46:57 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void sort_two()
     if (min == all->t_a[1])
         swap_a_b(all->t_a, 'a');
 }
-
 
 void sort_three()
 {
@@ -114,22 +113,12 @@ void sort_five()
 	push_a(all->t_a, all->t_b);
 }
 
-// void sort_6_to_20()
-// {
-    
-// }
-
-
-/////***reda
-
-
 void get_new_list(int list[], int tc[])
 {
 	t_all *all;
 	
 	all = all_t();
 	int i = 0;
-	// printf("%d]]", all->index_list);
 	while (i < all->len_list)
 	{
 		// if (i == all->len_list)
@@ -137,16 +126,11 @@ void get_new_list(int list[], int tc[])
 		// 	list[i] = tc[all->index_list];
 		// 	break;
 		// }
-		
 		list[i] = tc[all->index_list];
 		i++;
 		all->index_list++;
-	
 	}
-	
 }
-
-
 
 int is_nbr_in_list(int nb, int list[])
 {
@@ -218,95 +202,6 @@ void sort_6_to_20()
 	t_all *all;
 	
 	all = all_t();
-	
-	// int i = 0;
-	// get_new_list(all->list, all->t_c);
-	// while (i < all->len_a)
-	// {
-	// 	if (is_nbr_in_list(all->t_a[i], all->list) == 1)
-	// 	{
-	// 		send_it_to_b(all->t_a, all->t_b, i);
-	// 		i++;
-	// 	}
-			
-	// 	i++;
-	// }
-
-
-
-
-
-
-
-
-	
-    // all->len_list = all->len_c / 4;
-	// int count = all->len_c / all->len_list;
-	// if ((all->len_c % all->len_list) != 0)
-	// 	count++;
-	// int list[all->len_list];
-	// // int count = all->len_c / all->len_list;
-	// // int count = all->len_c / all->len_list;
-	// all->index_list = 0;
-	// int i = 0;
-	// int l = 0;
-	// int lenlisttmp = all->len_list; 
-    // int jj = 0;
-
-	// printf("[%d][%d]", all->len_list, count);
-	// while (l < count)
-	// {
-	// 	get_new_list(list, all->t_c);
-	// 	i = 0;
-	// 	int len = all->len_a;
-	// 	while(i < len && lenlisttmp > 0)
-	// 	{
-	// 		if (is_nbr_in_list(all->t_a[i], list) == 1)
-	// 		{
-	// 			send_it_to_b(all->t_a, all->t_b, i);
-	// 			push_b(all->t_a, all->t_b);
-	// 			lenlisttmp--;
-	// 			i = 0;
-	// 		}
-	// 		i++;
-	// 	}
-	// 	// jj = all->index_list + 5;
-	// 	// printf("\n%d=\n", all->len_list);
-	// 	l++;
-	// }
-
-    // while (l < 3)
-	// {
-	// 	get_new_list(list, all->t_c);
-	// 	i = 0;
-    //     lenlisttmp = all->len_list;
-	// 	int len = all->len_a;
-	// 	while(i < len && lenlisttmp > 0)
-	// 	{
-	// 		if (is_nbr_in_list(all->t_a[i], list) == 1)
-	// 		{
-	// 			send_it_to_b(all->t_a, all->t_b, i);
-	// 			push_b(all->t_a, all->t_b);
-	// 			lenlisttmp--;
-	// 			i = 0;
-	// 		}
-	// 		i++;
-	// 	}
-	// 	l++;
-	// }
-    
-
-	
-
-
-
-
-
-
-
-
-
-
 	int midl = 0;
 	while (all->len_a > 0)
     {
@@ -335,24 +230,6 @@ void sort_6_to_20()
 	{
 		push_a(all->t_a, all->t_b);
 	}
-	
-
-
-
-
-    // int j  = 0;
-	// while(j < all->len_list)
-	// {
-	// 	printf("%d ", list[j]);
-	// 	j++;
-	// }
-
-	// int j  = 0;
-	// while(j < all->len_a)
-	// {
-	// 	printf("%d ", ta[j]);
-	// 	j++;
-	// }
 }
 
 void while_boucl()
@@ -376,7 +253,6 @@ void while_boucl()
 		}
 		i++;
 	}
-	// printf("[%d]]]", all->len_a);
 }
 
 void sort_20_to_150()
@@ -388,14 +264,12 @@ void sort_20_to_150()
 	int i = 0;
 	all->len_list = all->len_c / 6;
 	int len_aa = all->len_a;
-	// int count;
 	int p;
 	int resl = all->len_c % all->len_list;
 	if(resl == 0)
 		p = all->len_c / all->len_list;
 	else
 		p = (all->len_c / all->len_list) + 1;
-	// printf("resl = %d\n",p);
 	i = 0;
 	while (i < p )
 	{
@@ -408,52 +282,8 @@ void sort_20_to_150()
 		midl = all->len_b / 2;
 		int max = max_number(all->t_b, all->len_b);
 		int index = get_index(all->t_b, all->len_b, max);
-		// printf("%d]]", max);
 		send_it_to_a(all->t_a, all->t_b, index);
-		// if (index <= midl)
-		// {
-		// 	while (index > 0)
-		// 	{
-		// 		rotate(all->t_b, all->len_b, 'b'); // RA RB
-		// 		index--;
-		// 	}
-		// }
-		// else if (index > midl)
-		// {
-		// 	while (index < all->len_a)
-		// 	{
-		// 		reverce_rotate(all->t_b, all->len_b, 'b'); // RRA RRB
-		// 		index++;
-		// 	}
-		// }
-		// push_a(all->t_a, all->t_b);
 	}
-
-	
-	// count = 0;
-	// get_new_list(all->list, all->t_c);
-	// while (i < len_aa && count < 5)
-	// {
-	// 	if (is_nbr_in_list(all->t_a[i], all->list) == 1)
-	// 	{
-	// 		send_it_to_b(all->t_a, all->t_b, i);
-	// 		count++;
-	// 		i = -1;
-	// 	}
-	// 	i++;
-	// }
-
-
-
-
-	
-	// get_new_list(all->list, all->t_c);
-	// int j  = 0;
-	// while(j < all->len_list)
-	// {
-	// 	printf("%d ", all->list[j]);
-	// 	j++;
-	// }
 }
 
 void sort_more()
@@ -465,14 +295,12 @@ void sort_more()
 	int i = 0;
 	all->len_list = all->len_c / 12;
 	int len_aa = all->len_a;
-	// int count;
 	int p;
 	int resl = all->len_c % all->len_list;
 	if(resl == 0)
 		p = all->len_c / all->len_list;
 	else
 		p = (all->len_c / all->len_list) + 1;
-	// printf("resl = %d\n",p);
 	i = 0;
 	while (i < p )
 	{
@@ -485,50 +313,6 @@ void sort_more()
 		midl = all->len_b / 2;
 		int max = max_number(all->t_b, all->len_b);
 		int index = get_index(all->t_b, all->len_b, max);
-		// printf("%d]]", max);
 		send_it_to_a(all->t_a, all->t_b, index);
-		// if (index <= midl)
-		// {
-		// 	while (index > 0)
-		// 	{
-		// 		rotate(all->t_b, all->len_b, 'b'); // RA RB
-		// 		index--;
-		// 	}
-		// }
-		// else if (index > midl)
-		// {
-		// 	while (index < all->len_a)
-		// 	{
-		// 		reverce_rotate(all->t_b, all->len_b, 'b'); // RRA RRB
-		// 		index++;
-		// 	}
-		// }
-		// push_a(all->t_a, all->t_b);
 	}
-
-	
-	// count = 0;
-	// get_new_list(all->list, all->t_c);
-	// while (i < len_aa && count < 5)
-	// {
-	// 	if (is_nbr_in_list(all->t_a[i], all->list) == 1)
-	// 	{
-	// 		send_it_to_b(all->t_a, all->t_b, i);
-	// 		count++;
-	// 		i = -1;
-	// 	}
-	// 	i++;
-	// }
-
-
-
-
-	
-	// get_new_list(all->list, all->t_c);
-	// int j  = 0;
-	// while(j < all->len_list)
-	// {
-	// 	printf("%d ", all->list[j]);
-	// 	j++;
-	// }
 }

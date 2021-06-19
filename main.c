@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 21:36:04 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:48:22 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,13 +137,6 @@ int main(int ac, char **av)
     if (ac > 2)
     {
         initial(ac, av);
-        // swap_a_b(all->t_a, 'a'); // SA
-        // swap_a_b(all->t_a, 'b'); // SB
-        // rotate(all->t_a, all->len_a, 'a'); // RA RB
-        // reverce_rotate(all->t_a, all->len_a, 'a'); // RRA RRB
-        // push_b(all->t_a, all->t_b); // pb
-        // push_a(all->t_a, all->t_b); // pa
-
         if (all->len_a == 2)
             sort_two();
         else if (all->len_a == 3)
@@ -158,49 +151,6 @@ int main(int ac, char **av)
             sort_20_to_150();
         else if (all->len_a >= 150)
             sort_more();
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // // ////////// tabl AA
-            //  i = 0;
-            //   printf("* THIS IS TABLE A * \n");
-            // while(i < all->len_a)
-            // {
-            //     printf("%d\n", all->t_a[i]);
-            //     i++;
-            // }
-        // // ////////// tabl BB
-            // i = 0;
-            // printf("* THIS IS TABLE B * \n");
-            // while(i < all->len_b)
-            // {
-            //     printf("%d\n", all->t_b[i]);
-            //     i++;
-            // }
-        // // ////////// tabl CC
-            // i = 0;
-            // printf("* THIS IS TABLE C *\n");
-            // while(i < all->len_c)
-            // {
-            //     printf("%d\n", all->t_c[i]);
-            //     i++;
-            // }
     }
     return (0);
 }
