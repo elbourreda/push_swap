@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 02:07:12 by parrot           ###   ########.fr       */
+/*   Updated: 2021/06/19 20:55:10 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void initial(int ac, char **av)
     all->t_a = (int *)malloc(sizeof(int *) * ac);
     all->t_b = (int *)malloc(sizeof(int *) * ac);
     all->t_c = (int *)malloc(sizeof(int *) * ac);
+    all->list = (int *)malloc(sizeof(int *) * ac);
     add_to_table_int(av, 'a');
     add_to_table_int(av, 'c');
     sort_tc(all->t_c);
@@ -145,15 +146,18 @@ int main(int ac, char **av)
 
         if (all->len_a == 2)
             sort_two();
-        if (all->len_a == 3)
+        else if (all->len_a == 3)
             sort_three();
-        if (all->len_a == 4)
+        else if (all->len_a == 4)
             sort_four();
-        if (all->len_a == 5)
+        else if (all->len_a == 5)
             sort_five();
-        if (all->len_a >= 6 && all->len_a <= 20)
+        else if (all->len_a >= 6 && all->len_a < 20)
             sort_6_to_20();
-
+        else if (all->len_a >= 20 && all->len_a <= 150)
+            sort_20_to_150();
+        
+            
 
 
 
@@ -172,21 +176,21 @@ int main(int ac, char **av)
 
 
         // // ////////// tabl AA
-             i = 0;
-              printf("* THIS IS TABLE A * \n");
-            while(i < all->len_a)
-            {
-                printf("%d\n", all->t_a[i]);
-                i++;
-            }
+            //  i = 0;
+            //   printf("* THIS IS TABLE A * \n");
+            // while(i < all->len_a)
+            // {
+            //     printf("%d\n", all->t_a[i]);
+            //     i++;
+            // }
         // // ////////// tabl BB
-            i = 0;
-            printf("* THIS IS TABLE B * \n");
-            while(i < all->len_b)
-            {
-                printf("%d\n", all->t_b[i]);
-                i++;
-            }
+            // i = 0;
+            // printf("* THIS IS TABLE B * \n");
+            // while(i < all->len_b)
+            // {
+            //     printf("%d\n", all->t_b[i]);
+            //     i++;
+            // }
         // // ////////// tabl CC
             // i = 0;
             // printf("* THIS IS TABLE C *\n");
