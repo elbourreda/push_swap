@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/18 19:56:07 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 01:33:29 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ typedef struct s_all
     int *t_a;
     int *t_b;
     int *t_c;
-    char *list;
-    int len_list;
+    int *list;
+    // int len_list;
+    
+        int len_list;
+    int index_list;
+
     
 }   t_all;
 
@@ -45,4 +49,8 @@ int	max_number(int *av, int len);
 void sort_two();
 void sort_three();
 void sort_five();
+void sort_four();
+void sort_6_to_20();
+void	push_a(int table_a[], int table_b[]);
+
 #endif 

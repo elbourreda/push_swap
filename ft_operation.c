@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:39:47 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/18 20:52:53 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 01:04:09 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,36 @@ void	reverce_rotate(int table_a[], int len, char o)
 		write(1, "rrb\n", 4);
 }
 
+void	push_a(int table_a[], int table_b[])
+{
+	int tmp;
+	int	i;
+	t_all *all;
+
+	all = all_t();
+	tmp = table_b[0];
+
+
+	all->len_a++;
+	i = all->len_a;
+	while (i > 0)
+	{
+		table_a[i] = table_a[i - 1];
+		i--;
+	}
+	table_a[0] = tmp;
+	
+	
+	i = 0;
+	while (i < all->len_b)
+	{
+		table_b[i] = table_b[i + 1];
+		i++;
+	}
+	all->len_b--;
+	write(1, "pa\n", 3);
+}
+
 void	push_b(int table_a[], int table_b[])
 {
 	int tmp;
@@ -89,10 +119,10 @@ void	push_b(int table_a[], int table_b[])
 		i++;
 	}
 	all->len_a--;
-	// write(1, "pb\n", 3);
+	write(1, "pb\n", 3);
 }
 
-void	push_a(int ta[], int tb[])
+void	push_ad(int ta[], int tb[])
 {
 	
 	t_all *all;

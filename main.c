@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/18 20:04:42 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 02:07:12 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,8 +147,12 @@ int main(int ac, char **av)
             sort_two();
         if (all->len_a == 3)
             sort_three();
+        if (all->len_a == 4)
+            sort_four();
         if (all->len_a == 5)
             sort_five();
+        if (all->len_a >= 6 && all->len_a <= 20)
+            sort_6_to_20();
 
 
 
