@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 20:55:10 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:36:04 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,8 @@ int main(int ac, char **av)
             sort_6_to_20();
         else if (all->len_a >= 20 && all->len_a <= 150)
             sort_20_to_150();
+        else if (all->len_a >= 150)
+            sort_more();
         
             
 

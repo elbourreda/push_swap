@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 15:56:17 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:35:09 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ void sort_four();
 void sort_6_to_20();
 void	push_a(int table_a[], int table_b[]);
 void sort_20_to_150();
+void sort_more();
 #endif 

@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 19:17:09 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 20:56:05 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/19 21:37:18 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -387,6 +387,83 @@ void sort_20_to_150()
 	all->index_list = 0;
 	int i = 0;
 	all->len_list = all->len_c / 6;
+	int len_aa = all->len_a;
+	// int count;
+	int p;
+	int resl = all->len_c % all->len_list;
+	if(resl == 0)
+		p = all->len_c / all->len_list;
+	else
+		p = (all->len_c / all->len_list) + 1;
+	// printf("resl = %d\n",p);
+	i = 0;
+	while (i < p )
+	{
+		while_boucl();
+		i++;
+	}
+	int midl = 0;
+	while (all->len_b > 0)
+	{
+		midl = all->len_b / 2;
+		int max = max_number(all->t_b, all->len_b);
+		int index = get_index(all->t_b, all->len_b, max);
+		// printf("%d]]", max);
+		send_it_to_a(all->t_a, all->t_b, index);
+		// if (index <= midl)
+		// {
+		// 	while (index > 0)
+		// 	{
+		// 		rotate(all->t_b, all->len_b, 'b'); // RA RB
+		// 		index--;
+		// 	}
+		// }
+		// else if (index > midl)
+		// {
+		// 	while (index < all->len_a)
+		// 	{
+		// 		reverce_rotate(all->t_b, all->len_b, 'b'); // RRA RRB
+		// 		index++;
+		// 	}
+		// }
+		// push_a(all->t_a, all->t_b);
+	}
+
+	
+	// count = 0;
+	// get_new_list(all->list, all->t_c);
+	// while (i < len_aa && count < 5)
+	// {
+	// 	if (is_nbr_in_list(all->t_a[i], all->list) == 1)
+	// 	{
+	// 		send_it_to_b(all->t_a, all->t_b, i);
+	// 		count++;
+	// 		i = -1;
+	// 	}
+	// 	i++;
+	// }
+
+
+
+
+	
+	// get_new_list(all->list, all->t_c);
+	// int j  = 0;
+	// while(j < all->len_list)
+	// {
+	// 	printf("%d ", all->list[j]);
+	// 	j++;
+	// }
+}
+
+void sort_more()
+{
+	t_all *all;
+	
+	all = all_t();
+	all->index_list = 0;
+	int i = 0;
+	all->len_list = all->len_c / 12;
 	int len_aa = all->len_a;
 	// int count;
 	int p;
