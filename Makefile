@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+         #
+#    By: parrot <parrot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/17 19:16:04 by rel-bour          #+#    #+#              #
-#    Updated: 2021/06/18 19:17:24 by rel-bour         ###   ########.fr        #
+#    Updated: 2021/06/20 00:23:32 by parrot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror   
 
-SRC = main.c ft_operation.c ft_sort.c
+SRC = main.c ft_operation.c ft_sort.c ft_split.c
 	
 all : $(NAME)
 

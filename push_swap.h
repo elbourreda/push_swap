@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 21:35:09 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/20 00:23:49 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# define  LONG_L long long
 
 typedef struct s_all
 {
@@ -26,6 +27,9 @@ typedef struct s_all
     int *t_b;
     int *t_c;
     int *list;
+    int ac;
+    char **args;
+    char **tmp;
     // int len_list;
     
         int len_list;
@@ -43,7 +47,7 @@ void	push_b(int table_a[], int table_b[]);
 void	push_a(int ta[], int tb[]);
 t_all	*all_t(void);
 
-
+char			**ft_split(char const *s, char c);
 int	min_number(int *av, int len);
 int	max_number(int *av, int len);
 void sort_two();
