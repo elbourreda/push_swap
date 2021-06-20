@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 16:26:04 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/20 19:34:14 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ typedef struct s_all
     int ac;
     char **args;
     char **tmp;
-    // int len_list;
-    
-        int len_list;
+    int	swap;
+    int	pos;
+    int len_list;
     int index_list;
-
+    int	i;
+	int	j;
+	int	min;
     
 }   t_all;
 

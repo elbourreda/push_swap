@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 17:20:30 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/20 19:55:01 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ t_all	*all_t(void)
 	static t_all	all;
 
 	return (&all);
+}
+
+void	print_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }
 
 int	max_number(int *av, int len)
@@ -51,20 +57,23 @@ int	min_number(int *av, int len)
 	return (min);
 }
 
-void check_nmbr_max(long nb)
+void	check_nmbr_max(long nb)
 {
 	if (nb > 2147483647)
-    {
-        write(1, "Error\n", 6);
-        exit(1);
-    }
+		print_error();
 	else if (nb < -2147483648)
-	{
-		write(1, "Error\n", 6);
-        exit(1);
-	}
+		print_error();
 }
-int		ft_atoi(char *str)
+
+int	return_atoi(int sing)
+{
+	if (sing > 0)
+		return (-1);
+	else
+		return (0);
+}
+
+int	ft_atoi(char *str)
 {
 	long	rslt;
 	int		sign;
@@ -86,7 +95,7 @@ int		ft_atoi(char *str)
 	{
 		rslt = rslt * 10 + (str[cnt] - '0');
 		if (rslt < 0)
-			return ((sign > 0) ? -1 : 0);
+			return (return_atoi(sign));
 		cnt++;
 	}
 	check_nmbr_max(rslt * sign);
@@ -97,88 +106,76 @@ void	add_to_table_int(char **av, char c)
 {
 	int		i;
 	t_all	*all;
-	
+
 	i = 0;
 	all = all_t();
-				// printf("%d||\n", all->len_a);
-
-    if (c == 'a')
-    {
-        while (i < all->len_a)
-        {
-            all->t_a[i] = ft_atoi(av[i]);
-            i++;
-        }
-    }
-    else
-    {
-        while (i < all->len_c)
-        {
-            all->t_c[i] = atoi(av[i]);
-            i++;
-        }
-    }
+	if (c == 'a')
+	{
+		while (i < all->len_a)
+		{
+			all->t_a[i] = ft_atoi(av[i]);
+			i++;
+		}
+	}
+	else
+	{
+		while (i < all->len_c)
+		{
+			all->t_c[i] = atoi(av[i]);
+			i++;
+		}
+	}
 }
 
 void	sort_tc(int tc[])
 {
-	int i;
-	int j;
-	int pos;
-	int min;
-	int swap;
-	t_all *all;
+	t_all	*all;
 
 	all = all_t();
-	i = 0;
-	while (i < all->len_c)
+	all->i = -1;
+	while (++all->i < all->len_c)
 	{
-		j = i;
-		min = tc[j];
-		pos = j;
-		while (j < all->len_c)
+		all->j = all->i;
+		all->min = tc[all->j];
+		all->pos = all->j;
+		while (++all->j < all->len_c)
 		{
-			if (tc[j] < min)
+			if (tc[all->j] < all->min)
 			{
-				min = tc[j];
-				pos = j;
+				all->min = tc[all->j];
+				all->pos = all->j;
 			}
-			j++;
 		}
-		if (pos != i)
+		if (all->pos != all->i)
 		{
-			swap = tc[i];
-			tc[i] = tc[pos];
-			tc[pos] = swap;
+			all->swap = tc[all->i];
+			tc[all->i] = tc[all->pos];
+			tc[all->pos] = all->swap;
 		}
-		i++;
 	}
 }
 
-void initial(int ac, char **av)
+void	initial(int ac, char **av)
 {
-    t_all *all;
-	
+	t_all	*all;
+
 	all = all_t();
-    all->len_a = all->ac;
-			// printf("%d|%d\n", ac, all->len_a);
-
-    all->len_b = 0;
-    all->len_c = all->len_a;
-    all->t_a = (int *)malloc(sizeof(int *) * all->ac);
-    all->t_b = (int *)malloc(sizeof(int *) * all->ac);
-    all->t_c = (int *)malloc(sizeof(int *) * all->ac);
-    all->list = (int *)malloc(sizeof(int *) * all->ac);
-		add_to_table_int(av, 'a');
-		add_to_table_int(av, 'c');
-		sort_tc(all->t_c);
+	all->len_a = all->ac;
+	all->len_b = 0;
+	all->len_c = all->len_a;
+	all->t_a = (int *)malloc(sizeof(int *) * all->ac);
+	all->t_b = (int *)malloc(sizeof(int *) * all->ac);
+	all->t_c = (int *)malloc(sizeof(int *) * all->ac);
+	all->list = (int *)malloc(sizeof(int *) * all->ac);
+	add_to_table_int(av, 'a');
+	add_to_table_int(av, 'c');
+	sort_tc(all->t_c);
 }
-
-
 
 void	norm_list(char **ar)
 {
-	int	i;
+	int		i;
+	int		j;
 	t_all	*all;
 
 	all = all_t();
@@ -190,7 +187,7 @@ void	norm_list(char **ar)
 	}
 	free(all->args);
 	all->args = NULL;
-	int j = 0;
+	j = 0;
 	while (ar[j])
 	{
 		all->tmp[i] = ar[j];
@@ -199,19 +196,18 @@ void	norm_list(char **ar)
 	}
 	all->tmp[i] = NULL;
 	all->args = all->tmp;
-
-
-	
 }
 
 void	add_in_list(char **ar)
 {
-	int	i;
+	int		i;
 	t_all	*all;
+	int		c;
+	int		c2;
 
 	all = all_t();
-	int c = 0;
-	int c2 = 0;
+	c = 0;
+	c2 = 0;
 	i = -1;
 	if (!ar)
 		return ;
@@ -226,10 +222,10 @@ void	add_in_list(char **ar)
 
 void	rem_args(char **av)
 {
-	int			i;
-	char		**ar;
+	int		i;
+	char	**ar;
 	int		c;
-	t_all		*all;
+	t_all	*all;
 
 	all = all_t();
 	i = 0;
@@ -249,44 +245,46 @@ void	rem_args(char **av)
 int	ft_isdigit(char number)
 {
 	if ((number >= '0' && number <= '9'))
-	{
 		return (1);
-	}
 	else
 		return (0);
 }
 
-void check_error()
+void	check_error(void)
 {
-	t_all *all;
+	t_all	*all;
+	int		o;
+	int		k;
 
 	all = all_t();
-	int o = 0;
+	o = 0;
 	while (all->args[o])
 	{
-		int k = 0;
-		if (all->args[o][k] == '-' || all->args[o][k] ==  '+')
-			k++; 
+		 k = 0;
+		if (all->args[o][k] == '-' || all->args[o][k] == '+')
+		{
+			k++;
+			if (all->args[o][k] == '\0')
+				print_error();
+		}
 		while (all->args[o][k])
 		{
 			if (ft_isdigit(all->args[o][k]) == 0 )
-			{
-				write(1, "Error\n", 6);
-				exit(1);
-			}
+				print_error();
 			k++;
 		}
 		o++;
 	}
 }
 
-void check_double()
+void	check_double(void)
 {
-	t_all *all;
-	int i = 0;
-	int j = 0;
-	
+	t_all	*all;
+	int		i;
+	int		j;
+
 	all = all_t();
+	i = 0;
 	while (i < all->len_a)
 	{
 		j = i + 1;
@@ -297,58 +295,37 @@ void check_double()
 				write(1, "Error\n", 6);
 				exit(1);
 			}
-			j++;	
+			j++;
 		}
 		i++;
 	}
 }
 
-// void check_max_int()
-// {
-// 	t_all *all;
-// 	int i = 0;
-
-// 	all = all_t();
-// 	while (i < all->len_a)
-// 	{
-// 		if (all->t_a[i] > 2147483640)
-// 		{
-// 			write(1, "Error\n", 6);
-// 			exit(1);
-// 		}
-// 		i++;
-// 	}
-// }
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_all *all;
-	int i = 0;
+	t_all	*all;
 
 	all = all_t();
-    if (ac > 1)
-    {
+	if (ac > 1)
+	{
 		rem_args(av);
 		check_error();
-        initial(all->ac, all->args);
+		initial(all->ac, all->args);
 		check_double();
-		// check_max_int();
-        if (all->len_a == 2)
-            sort_two();
-        else if (all->len_a == 3)
-            sort_three();
-        else if (all->len_a == 4)
-            sort_four();
-        else if (all->len_a == 5)
-            sort_five();
-        else if (all->len_a >= 6 && all->len_a < 20)
-            sort_6_to_20();
-        else if (all->len_a >= 20 && all->len_a <= 150)
-            sort_20_to_150();
-        else if (all->len_a >= 150)
-            sort_more();
-    }
-	
-	
-    return (0);
+		if (all->len_a == 2)
+			sort_two();
+		else if (all->len_a == 3)
+			sort_three();
+		else if (all->len_a == 4)
+			sort_four();
+		else if (all->len_a == 5)
+			sort_five();
+		else if (all->len_a >= 6 && all->len_a < 20)
+			sort_6_to_20();
+		else if (all->len_a >= 20 && all->len_a <= 150)
+			sort_20_to_150();
+		else if (all->len_a >= 150)
+			sort_more();
+	}
+	return (0);
 }
