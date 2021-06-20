@@ -6,7 +6,7 @@
 /*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 02:36:23 by parrot           ###   ########.fr       */
+/*   Updated: 2021/06/20 02:43:25 by parrot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,6 +261,23 @@ void check_double()
 	}
 }
 
+void check_max_int()
+{
+	t_all *all;
+	int i = 0;
+
+	all = all_t();
+	while (i < all->len_a)
+	{
+		if (all->t_a[i] > 2147483640)
+		{
+			write(1, "Error\n", 6);
+			exit(1);
+		}
+		i++;
+	}
+}
+
 int main(int ac, char **av)
 {
     t_all *all;
@@ -273,6 +290,7 @@ int main(int ac, char **av)
 		check_error();
         initial(all->ac, all->args);
 		check_double();
+		check_max_int();
         if (all->len_a == 2)
             sort_two();
         else if (all->len_a == 3)
