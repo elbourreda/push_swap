@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:39:47 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/19 21:47:51 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/20 16:16:10 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,28 +122,28 @@ void	push_b(int table_a[], int table_b[])
 	write(1, "pb\n", 3);
 }
 
-void	push_ad(int ta[], int tb[])
-{
+// void	push_ad(int ta[], int tb[])
+// {
 	
-	t_all *all;
+// 	t_all *all;
 
-	all = all_t();
-	char c = tb[0];
-	int i = 0;
+// 	all = all_t();
+// 	char c = tb[0];
+// 	int i = 0;
 	
-	while (i < (all->len_b))
-	{
-		tb[i] = tb[i + 1];
-		i++;
-	}
-	i = 0;
-	while(i < all->len_a)
-	{
-		printf("===%d===", ta[i + 1]);
-		ta[i + 1] = ta[i];
-		i++;		
-	}
-	ta[0] = c;
-	all->len_b--;
-	all->len_a++;
-}
+// 	while (i < (all->len_b))
+// 	{
+// 		tb[i] = tb[i + 1];
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while(i < all->len_a)
+// 	{
+// 		printf("===%d===", ta[i + 1]);
+// 		ta[i + 1] = ta[i];
+// 		i++;		
+// 	}
+// 	ta[0] = c;
+// 	all->len_b--;
+// 	all->len_a++;
+// }

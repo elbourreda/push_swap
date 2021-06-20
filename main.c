@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 02:43:25 by parrot           ###   ########.fr       */
+/*   Updated: 2021/06/20 17:20:30 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,48 @@ int	min_number(int *av, int len)
 	return (min);
 }
 
+void check_nmbr_max(long nb)
+{
+	if (nb > 2147483647)
+    {
+        write(1, "Error\n", 6);
+        exit(1);
+    }
+	else if (nb < -2147483648)
+	{
+		write(1, "Error\n", 6);
+        exit(1);
+	}
+}
+int		ft_atoi(char *str)
+{
+	long	rslt;
+	int		sign;
+	int		cnt;
+
+	rslt = 0;
+	sign = 1;
+	cnt = 0;
+	while (str[cnt] == 32 || (str[cnt] >= 9 && str[cnt] <= 13))
+		cnt++;
+	if (str[cnt] == '-')
+	{
+		cnt++;
+		sign = -1;
+	}
+	else if (str[cnt] == '+')
+		cnt++;
+	while (str[cnt] >= '0' && str[cnt] <= '9')
+	{
+		rslt = rslt * 10 + (str[cnt] - '0');
+		if (rslt < 0)
+			return ((sign > 0) ? -1 : 0);
+		cnt++;
+	}
+	check_nmbr_max(rslt * sign);
+	return (rslt * sign);
+}
+
 void	add_to_table_int(char **av, char c)
 {
 	int		i;
@@ -64,7 +106,7 @@ void	add_to_table_int(char **av, char c)
     {
         while (i < all->len_a)
         {
-            all->t_a[i] = atoi(av[i]);
+            all->t_a[i] = ft_atoi(av[i]);
             i++;
         }
     }
@@ -136,7 +178,7 @@ void initial(int ac, char **av)
 
 void	norm_list(char **ar)
 {
-	LONG_L	i;
+	int	i;
 	t_all	*all;
 
 	all = all_t();
@@ -164,7 +206,7 @@ void	norm_list(char **ar)
 
 void	add_in_list(char **ar)
 {
-	LONG_L	i;
+	int	i;
 	t_all	*all;
 
 	all = all_t();
@@ -261,22 +303,22 @@ void check_double()
 	}
 }
 
-void check_max_int()
-{
-	t_all *all;
-	int i = 0;
+// void check_max_int()
+// {
+// 	t_all *all;
+// 	int i = 0;
 
-	all = all_t();
-	while (i < all->len_a)
-	{
-		if (all->t_a[i] > 2147483640)
-		{
-			write(1, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
-}
+// 	all = all_t();
+// 	while (i < all->len_a)
+// 	{
+// 		if (all->t_a[i] > 2147483640)
+// 		{
+// 			write(1, "Error\n", 6);
+// 			exit(1);
+// 		}
+// 		i++;
+// 	}
+// }
 
 int main(int ac, char **av)
 {
@@ -290,7 +332,7 @@ int main(int ac, char **av)
 		check_error();
         initial(all->ac, all->args);
 		check_double();
-		check_max_int();
+		// check_max_int();
         if (all->len_a == 2)
             sort_two();
         else if (all->len_a == 3)
@@ -306,5 +348,7 @@ int main(int ac, char **av)
         else if (all->len_a >= 150)
             sort_more();
     }
+	
+	
     return (0);
 }

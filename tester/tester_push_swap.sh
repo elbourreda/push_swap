@@ -11,10 +11,10 @@ WHITE="\033[37m"
 
 #g ../push_swap.c
 cp ../push_swap .
-cp ../checker_linux .
+cp ../checker_Mac .
 function push_swap()
 {
-	TEST1=$(./push_swap $@ | ./checker_linux $@)
+	TEST1=$(./push_swap $@ | ./checker_Mac $@)
 	LENINC=$(./push_swap $@ | wc -l)
 
 	if [ "$TEST1" == "OK" ]

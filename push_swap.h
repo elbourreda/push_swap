@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: parrot <parrot@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 00:23:49 by parrot           ###   ########.fr       */
+/*   Updated: 2021/06/20 16:26:04 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# define  LONG_L long long
+
 
 typedef struct s_all
 {
