@@ -6,18 +6,17 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 16:39:47 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 16:16:10 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:01:46 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	swap_a_b(int *table, char o)
 {
-	int tmp;
-	t_all *all;
-	
+	int		tmp;
+	t_all	*all;
+
 	all = all_t();
 	tmp = table[0];
 	table[0] = table[1];
@@ -59,7 +58,7 @@ void	reverce_rotate(int table_a[], int len, char o)
 		table_a[i] = table_a[i - 1];
 		i--;
 	}
-	table_a[0] = tmp; 
+	table_a[0] = tmp;
 	if (o == 'a')
 		write(1, "rra\n", 4);
 	else if (o == 'b')
@@ -68,14 +67,12 @@ void	reverce_rotate(int table_a[], int len, char o)
 
 void	push_a(int table_a[], int table_b[])
 {
-	int tmp;
-	int	i;
-	t_all *all;
+	int		tmp;
+	int		i;
+	t_all	*all;
 
 	all = all_t();
 	tmp = table_b[0];
-
-
 	all->len_a++;
 	i = all->len_a;
 	while (i > 0)
@@ -84,8 +81,6 @@ void	push_a(int table_a[], int table_b[])
 		i--;
 	}
 	table_a[0] = tmp;
-	
-	
 	i = 0;
 	while (i < all->len_b)
 	{
@@ -98,9 +93,9 @@ void	push_a(int table_a[], int table_b[])
 
 void	push_b(int table_a[], int table_b[])
 {
-	int tmp;
-	int	i;
-	t_all *all;
+	int		tmp;
+	int		i;
+	t_all	*all;
 
 	all = all_t();
 	tmp = table_a[0];
@@ -112,7 +107,7 @@ void	push_b(int table_a[], int table_b[])
 		i--;
 	}
 	table_b[0] = tmp;
-		i = 0;
+	i = 0;
 	while (i < all->len_a)
 	{
 		table_a[i] = table_a[i + 1];
@@ -121,29 +116,3 @@ void	push_b(int table_a[], int table_b[])
 	all->len_a--;
 	write(1, "pb\n", 3);
 }
-
-// void	push_ad(int ta[], int tb[])
-// {
-	
-// 	t_all *all;
-
-// 	all = all_t();
-// 	char c = tb[0];
-// 	int i = 0;
-	
-// 	while (i < (all->len_b))
-// 	{
-// 		tb[i] = tb[i + 1];
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while(i < all->len_a)
-// 	{
-// 		printf("===%d===", ta[i + 1]);
-// 		ta[i + 1] = ta[i];
-// 		i++;		
-// 	}
-// 	ta[0] = c;
-// 	all->len_b--;
-// 	all->len_a++;
-// }

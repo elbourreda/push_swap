@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/20 19:58:57 by rel-bour          #+#    #+#             */
+/*   Updated: 2021/06/20 19:59:08 by rel-bour         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		numstring(char const *s1, char c)
+int	numstring(char const *s1, char c)
 {
 	int	comp;
 	int	cles;
@@ -24,7 +35,7 @@ int		numstring(char const *s1, char c)
 	return (comp);
 }
 
-int		numchar(char const *s2, char c, int i)
+int	numchar(char const *s2, char c, int i)
 {
 	int	lenght;
 
@@ -37,7 +48,7 @@ int		numchar(char const *s2, char c, int i)
 	return (lenght);
 }
 
-char		**freee(char const **dst, int j)
+char	**freee(char const **dst, int j)
 {
 	while (j > 0)
 	{
@@ -48,7 +59,7 @@ char		**freee(char const **dst, int j)
 	return (NULL);
 }
 
-char		**affect(char const *s, char **dst, char c, int l)
+char	**affect(char const *s, char **dst, char c, int l)
 {
 	int	i;
 	int	j;
@@ -73,7 +84,7 @@ char		**affect(char const *s, char **dst, char c, int l)
 	return (dst);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	int		l;
