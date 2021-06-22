@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/21 15:51:50 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/22 11:48:27 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_all
     
 }   t_all;
 
+typedef struct s_sort_20
+{
+	int	index;
+	int	max;
+	int	midl;
+	int	i;
+	int	p;
+	int	resl;
+}	t_sort20;
 
 void	swap_a_b(int *table, char o);
 void	rotate(int table_a[], int len, char o);

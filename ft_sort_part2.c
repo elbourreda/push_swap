@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 14:45:20 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/22 11:42:41 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/22 11:43:31 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	while_boucl(void)
 {
 	t_all	*all;
 	int		i;
-	// int		len_aa;
 	int		count;
 
-	// len_aa = all->len_a;
 	i = 0;
 	all = all_t();
 	count = 0;
