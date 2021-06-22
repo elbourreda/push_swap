@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:18:35 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 19:34:14 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:51:50 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,26 @@ void sort_6_to_20();
 void	push_a(int table_a[], int table_b[]);
 void sort_20_to_150();
 void sort_more();
+void	sort_two(void);
+void	sort_three(void);;
+int	get_index(int *ta, int len, int min);
+void	get_new_list(int list[], int tc[]);
+int	is_nbr_in_list(int nb, int list[]);
+
+
+void	while_boucl(void);
+void	send_it_to_a(int ta[], int tb[], int index);
+void	send_it_to_b(int ta[], int tb[], int index);
+void	sort_four(void);
+
+int	min_number(int *av, int len);
+void	check_nmbr_max(long long nb);
+void	check_nmbr_max2(char *nb, char i);
+int	return_atoi(int sing);
+int	ft_atoi(char *str);
+void	print_error(void);
+
+
+
+
 #endif 

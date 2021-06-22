@@ -6,7 +6,7 @@
 /*   By: rel-bour <rel-bour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 19:15:22 by rel-bour          #+#    #+#             */
-/*   Updated: 2021/06/20 19:55:01 by rel-bour         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:50:40 by rel-bour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,66 +41,7 @@ int	max_number(int *av, int len)
 	return (max);
 }
 
-int	min_number(int *av, int len)
-{
-	int	min;
-	int	i;
 
-	i = 1;
-	min = av[0];
-	while (i < len)
-	{
-		if (min > av[i])
-			min = av[i];
-		i++;
-	}
-	return (min);
-}
-
-void	check_nmbr_max(long nb)
-{
-	if (nb > 2147483647)
-		print_error();
-	else if (nb < -2147483648)
-		print_error();
-}
-
-int	return_atoi(int sing)
-{
-	if (sing > 0)
-		return (-1);
-	else
-		return (0);
-}
-
-int	ft_atoi(char *str)
-{
-	long	rslt;
-	int		sign;
-	int		cnt;
-
-	rslt = 0;
-	sign = 1;
-	cnt = 0;
-	while (str[cnt] == 32 || (str[cnt] >= 9 && str[cnt] <= 13))
-		cnt++;
-	if (str[cnt] == '-')
-	{
-		cnt++;
-		sign = -1;
-	}
-	else if (str[cnt] == '+')
-		cnt++;
-	while (str[cnt] >= '0' && str[cnt] <= '9')
-	{
-		rslt = rslt * 10 + (str[cnt] - '0');
-		if (rslt < 0)
-			return (return_atoi(sign));
-		cnt++;
-	}
-	check_nmbr_max(rslt * sign);
-	return (rslt * sign);
-}
 
 void	add_to_table_int(char **av, char c)
 {
@@ -155,6 +96,23 @@ void	sort_tc(int tc[])
 	}
 }
 
+void check_if_list_sorted()
+{
+	int	i;
+	t_all	*all;
+
+	all = all_t();
+
+	i = 0;
+	while (i < all->len_a)
+	{
+		if (all->t_a[i] != all->t_c[i])
+			return ;
+		i++;
+	}
+	exit(1);
+}
+
 void	initial(int ac, char **av)
 {
 	t_all	*all;
@@ -170,6 +128,8 @@ void	initial(int ac, char **av)
 	add_to_table_int(av, 'a');
 	add_to_table_int(av, 'c');
 	sort_tc(all->t_c);
+	check_if_list_sorted();
+	
 }
 
 void	norm_list(char **ar)
